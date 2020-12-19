@@ -74,6 +74,7 @@
     <Compile Include="Concrete\EntityFramework\EfSizeDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfSupplierDal.cs" />
     <Compile Include="Concrete\EntityFramework\EticaretContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

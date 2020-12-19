@@ -223,7 +223,7 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
         public JsonResult SendMailToUser(string mesaj,string baslik)
         {
             var result = false;
-            result = SendEmail("yunus.unver1995@gmail.com",baslik , mesaj);
+            result = SendEmail("celikonline@gmail.com",baslik , mesaj);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

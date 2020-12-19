@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,14 @@ namespace ETicaretDersiProje.Eticaret.DataAccess.Concrete.EntityFramework
     {
         public EticaretContext()
         {
-            this.Configuration.LazyLoadingEnabled = false;
-            Database.SetInitializer<EticaretContext>(null);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EticaretContext, ETicaretDersiProje.Eticaret.DataAccess.Migrations.Configuration>());
         }
+        //public EticaretContext()
+        //{
+        //    this.Configuration.LazyLoadingEnabled = false;
+        //    Database.SetInitializer<EticaretContext>(new CreateDatabaseIfNotExists<EticaretContext>());
+        //   //Database.SetInitializer<EticaretContext>(null);
+        //}
         public DbSet<Category> Categories { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -28,6 +34,14 @@ namespace ETicaretDersiProje.Eticaret.DataAccess.Concrete.EntityFramework
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Ordered> Ordereds { get; set; }
         public DbSet<Complaint> Complaints { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+			modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+			modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+			
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }
