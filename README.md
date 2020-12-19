@@ -1,5 +1,5 @@
 ##### Trello Adresi `https://trello.com/b/sSu3Zfa5/e-ticaret`
-
+ Rümeysa dursun
 # Kullanılan Teknolojiler
 - Asp.net MVC
 - Entity Framework
