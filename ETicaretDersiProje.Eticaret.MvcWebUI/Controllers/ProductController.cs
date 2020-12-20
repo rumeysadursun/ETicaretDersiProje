@@ -34,7 +34,7 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
         {
             ProductListViewModel model=new ProductListViewModel()
             {
-                Products = _productService.GetAll()
+                Products = _productService.GetAll().OrderBy(x => x.SortLineNumber).ToList()
             };
 
             return View(model);

@@ -10,8 +10,9 @@ namespace ETicaretDersiProje.Eticaret.DataAccess.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
-
+       
         protected override void Seed(ETicaretDersiProje.Eticaret.DataAccess.Concrete.EntityFramework.EticaretContext context)
         {
             //  This method will be called after migrating to the latest version.

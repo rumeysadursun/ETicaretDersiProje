@@ -37,15 +37,17 @@
             <div class="product-information">
                 <!--/product-information-->
                 <img src="images/product-details/new.jpg" class="newarrival" alt="" />
-                <span><span>% @Model.Product.Discount İNDİRİM</span></span>
+
                 <h2>@Model.Product.ProductName</h2>
-                <p><b>Firma : </b>@Model.Product.Supplier.CompanyName </p>
+                <p>@Model.Product.Supplier.CompanyName </p>
+                <span><span>% @Model.Product.Discount İNDİRİM</span></span>
+
                 <img src="images/product-details/rating.png" alt="" />
                 <span>
 
                     @if (@Session["email"] == null)
                     {
-                        <p><b>Sepete ürün eklemek için giriş yapmalısınız!</b> </p>
+
                         <h3><strike>@Model.Product.UnitPrice TL</strike></h3>
                         <span>@(Model.Product.UnitPrice - (Model.Product.UnitPrice * Model.Product.Discount / 100)) TL</span>
                         <a href="/Home/Login" style="cursor: text !important;">
@@ -68,10 +70,12 @@
                         </a>
                     }
                 </span>
+                <p><b>Kod:</b> @Model.Product.Code</p>
+                <p><b>Barkod:</b> @Model.Product.Barcode</p>
                 <p><b>Stok Durumu:</b> @Model.Product.QuantityPerUnit</p>
                 <p><b>Kategori:</b> @Model.Product.Category.CategoryName</p>
                 <p><b>Renk:</b> @Model.Product.Color.ColorValue</p>
-                
+
                 <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
             </div><!--/product-information-->
         </div>

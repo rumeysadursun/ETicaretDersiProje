@@ -22,7 +22,31 @@
                 @Html.ValidationMessageFor(model => model.Product.ProductDescription, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Barcode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.Barcode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.Barcode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.NumberInPackage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.NumberInPackage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.NumberInPackage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -30,7 +54,7 @@
                 @Html.ValidationMessageFor(model => model.Product.UnitPrice, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.Discount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -38,7 +62,8 @@
                 @Html.ValidationMessageFor(model => model.Product.Discount, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.QuantityPerUnit, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -55,39 +80,39 @@
                 @Html.ValidationMessageFor(model => model.Product.Picture, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Product.CategoryID, (IEnumerable<SelectListItem>)Model.Categories, new { @class="form-control" })
+                @Html.DropDownListFor(model => model.Product.CategoryID, (IEnumerable<SelectListItem>)Model.Categories, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Product.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.SizeID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Product.SizeID, (IEnumerable<SelectListItem>)Model.Sizes, new { @class="form-control" })
+                @Html.DropDownListFor(model => model.Product.SizeID, (IEnumerable<SelectListItem>)Model.Sizes, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Product.SizeID, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.ColorID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Product.ColorID, (IEnumerable<SelectListItem>)Model.Colors, new { @class="form-control" })
+                @Html.DropDownListFor(model => model.Product.ColorID, (IEnumerable<SelectListItem>)Model.Colors, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Product.ColorID, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.SupplierID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Product.SupplierID, (IEnumerable<SelectListItem>)Model.Suppliers, new { @class="form-control" })
+                @Html.DropDownListFor(model => model.Product.SupplierID, (IEnumerable<SelectListItem>)Model.Suppliers, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Product.SupplierID, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.DiscountAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -96,11 +121,11 @@
                     new SelectListItem { Selected = true, Text = "True", Value = "True"},
                     new SelectListItem { Selected = false, Text = "False", Value = "False"}
 
-                },"Value","Text"), new { @class="form-control" })
+                }, "Value", "Text"), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Product.DiscountAvailable, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(model => model.Product.CurrentOrder, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -109,8 +134,16 @@
                     new SelectListItem { Selected = true, Text = "True", Value = "True"},
                     new SelectListItem { Selected = false, Text = "False", Value = "False"}
 
-                },"Value","Text"), new { @class="form-control" })
+                }, "Value", "Text"), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Product.CurrentOrder, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.SortLineNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Product.SortLineNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Product.SortLineNumber, "", new { @class = "text-danger" })
             </div>
         </div>
 

@@ -10,19 +10,21 @@
 </p>
 <table class="table">
     <thead>
-    <tr>
-        <th>Id</th>
-        <th>Ürün</th>
-        <th>İndirim</th>
-        <th>Açıklama</th>
-        <th>Kategori</th>
-        <th>Renk</th>
-        <th>Boyut</th>
-        <th>Fiyat</th>
-        <th>Resim</th>
-        <th>İşlemler</th>
+        <tr>
+            <th>Id</th>
+            <th>Ürün</th>
+            <th>İndirim</th>
+            <th>Ürün Kodu</th>
+            <th>Bar Kod</th>
+            <th>Kategori</th>
+            <th>Renk</th>
+            <th>Boyut</th>
+            <th>Fiyat</th>
+            <th>Resim</th>
+            <th>Sıra No</th>
+            <th>İşlemler</th>
 
-    </tr>
+        </tr>
     </thead>
     <tbody>
     @foreach (var item in Model.Products)
@@ -31,13 +33,15 @@
             <td>@item.ProductID</td>
             <td>@item.ProductName</td>
             <td>@item.Discount</td>
-            <td>@item.ProductDescription</td>
+            <td>@item.Code</td>
+            <td>@item.Barcode</td>
             <td>@item.Category.CategoryName</td>
             <td>@item.Color.ColorValue</td>
             <td>@item.Size.SizeValue</td>
             <td>@item.UnitPrice</td>
             <td><img src="@item.Picture" width="50" height="50" /></td>
-            
+            <td>@item.SortLineNumber</td>
+
             <td>
                 @Html.ActionLink("Düzenle", "Edit", new { id = item.ProductID }) |
                 @Html.ActionLink("Detay", "Detail", new { id = item.ProductID }) |

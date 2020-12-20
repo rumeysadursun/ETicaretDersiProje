@@ -27,7 +27,10 @@ namespace ETicaretDersiProje.Eticaret.Entities.Concrete
         public bool? DiscountAvailable  { get; set; }
         public bool? CurrentOrder { get; set; }
         public int? QuantityPerUnit { get; set; }
-
+        public string Barcode { get; set;}
+        public string Code { get; set; }
+        public int NumberInPackage { get; set; }
+        public int SortLineNumber { get; set; }
         public virtual Category Category { get; set; }
         public virtual Size Size { get; set; }
         public virtual Color Color { get; set; }

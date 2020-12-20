@@ -39,13 +39,13 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
 
         public ActionResult Index(int id=0 , int supplierID=0)
         {
-            Session["kategoriler"] = _categoryService.GetAll();
+            Session["kategoriler"] = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList();
             if (id == 0 && supplierID==0)
             {
                 HomeListViewModel model = new HomeListViewModel()
                 {
-                    Products = _productService.GetAll(),
-                    Categories = _categoryService.GetAll(),
+                    Products = _productService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
                     Suppliers = _supplierService.GetAll()
                 };
                 return View(model);
@@ -54,8 +54,8 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
             {
                 HomeListViewModel model = new HomeListViewModel()
                 {
-                    Products = _productService.GetAll().Where(x=>x.CategoryID==id).ToList(),
-                    Categories = _categoryService.GetAll(),
+                    Products = _productService.GetAll().Where(x=>x.CategoryID==id).OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
                     Suppliers = _supplierService.GetAll()
                 };
                 return View(model);
@@ -63,8 +63,8 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
             {
                 HomeListViewModel model = new HomeListViewModel()
                 {
-                    Products = _productService.GetAll().Where(x => x.SupplierID == supplierID).ToList(),
-                    Categories = _categoryService.GetAll(),
+                    Products = _productService.GetAll().Where(x => x.SupplierID == supplierID).OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
                     Suppliers = _supplierService.GetAll()
                 };
                 return View(model);
@@ -93,11 +93,11 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
 
         public ActionResult Discount()
         {
-            var products = _productService.GetAll().Where(x => x.DiscountAvailable == true).ToList();
+            var products = _productService.GetAll().Where(x => x.DiscountAvailable == true).OrderBy(x => x.SortLineNumber).ToList();
             HomeListViewModel model = new HomeListViewModel()
             {
                 Products = products,
-                Categories = _categoryService.GetAll(),
+                Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
                 Suppliers = _supplierService.GetAll()
             };
             return View(model);
@@ -186,7 +186,7 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
                 HomeListViewModel model = new HomeListViewModel()
                 {
                     Product = product,
-                    CurrentCategoryProduct = _productService.GetAll().Where(x => x.CategoryID == product.CategoryID).ToList()
+                    CurrentCategoryProduct = _productService.GetAll().Where(x => x.CategoryID == product.CategoryID).OrderBy(x => x.SortLineNumber).ToList()
                 };
                 return View(model);
           

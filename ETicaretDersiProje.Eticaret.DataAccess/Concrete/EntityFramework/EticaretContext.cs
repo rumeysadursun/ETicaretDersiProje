@@ -39,7 +39,8 @@ namespace ETicaretDersiProje.Eticaret.DataAccess.Concrete.EntityFramework
         {
 			modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 			modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-			
+
+
             base.OnModelCreating(modelBuilder);
         }
 
