@@ -30,7 +30,7 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
         {
             var model = new CategoryListViewModel
             {
-                Categories=_categoryService.GetAll()
+                Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList()
             };
 
             return View(model);
@@ -43,9 +43,9 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Category category,HttpPostedFileBase image)
+        public ActionResult Create(Category category, HttpPostedFileBase image)
         {
-          
+
 
 
             if (image != null)
@@ -58,7 +58,7 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
                 img.Save("~/Uploads/Category/" + newFoto);
                 category.Picture = "/Uploads/Category/" + newFoto;
             }
-         
+
             category.Active = true;
             _categoryService.Add(category);
 
@@ -84,7 +84,7 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Category category,HttpPostedFileBase image)
+        public ActionResult Edit(Category category, HttpPostedFileBase image)
         {
             if (image != null)
             {
@@ -100,7 +100,7 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
                 img.Save("~/Uploads/Category/" + newFoto);
                 category.Picture = "/Uploads/Category/" + newFoto;
                 category.Active = true;
-                
+
             }
             _categoryService.Update(category);
             return RedirectToAction("Index");

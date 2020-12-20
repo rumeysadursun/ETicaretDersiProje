@@ -5,7 +5,7 @@
 <h2>Kategori</h2>
 
 <p>
-    @Html.ActionLink("Kategori Oluştur", "Create", new {/* id=item.PrimaryKey */})
+    @Html.ActionLink("Kategori Ekle", "Create", new {/* id=item.PrimaryKey */})
 </p>
 <table class="table">
     <thead>
@@ -15,6 +15,7 @@
             <th>Açıklama</th>
             <th>Resim</th>
             <th>Aktif mi?</th>
+            <th>Sıra No</th>
             <th>İşlemler</th>
 
         </tr>
@@ -28,6 +29,7 @@
             <td>@item.Description</td>
             <td><img src="@item.Picture" width="50" height="50" /></td>
             <td>@item.Active</td>
+            <td>@item.SortLineNumber</td>
             <td>
                 @Html.ActionLink("Düzenle", "Edit", new { id = item.CategoryID }) |
                 @Html.ActionLink("Sil", "Delete", new { id = item.CategoryID })

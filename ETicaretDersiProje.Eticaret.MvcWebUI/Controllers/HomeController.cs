@@ -113,13 +113,13 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
         public ActionResult Login(Customer customer)
         {
             var kullanici = _customerService.Get(x=>x.Email==customer.Email && x.Password==customer.Password);
-            var role = _roleService.GetbyId(kullanici.RoleId);
             if (kullanici==null)
             {
                 return RedirectToAction("Index", "Home");
             }
             else
             {
+                var role = _roleService.GetbyId(kullanici.RoleId);
                 if (kullanici.Email==customer.Email && kullanici.Password==customer.Password)
                 {
                     Session["id"] = kullanici.CustomerID;

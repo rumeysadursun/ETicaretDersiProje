@@ -53,7 +53,15 @@
             </div>
         </div>
 
-       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SortLineNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SortLineNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SortLineNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
 
 
 
