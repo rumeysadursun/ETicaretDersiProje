@@ -1,0 +1,33 @@
+﻿@using System.Collections
+@model ETicaretDersiProje.Eticaret.MvcWebUI.Models.HomeListViewModel
+@{
+    Layout = "../_LayoutPageHomeStatic.cshtml";
+}
+<div class="page-hi"><img src="~/Content/assets/images/pages/top/iletisim.jpg" alt="İletişim" /></div>
+<section>
+
+
+
+
+
+    <h1>İletişim</h1>
+    <div class="con-lef">
+        <address> <br></address>
+        <span>(0212) 659 29 29</span>
+        <span>info@laisyhome.com</span>
+    </div>
+    <form class="con-rig" method="post" action="" onsubmit="xajax_processForm(xajax.getFormValues('contactform')); return false;">
+        <input type="text" name="nam" placeholder="Ad-Soyad" />
+        <input type="text" name="ema" placeholder="e-Posta" />
+        <input type="text" name="pho" placeholder="Telefon" />
+        <input type="text" name="sub" placeholder="Konu" />
+        <textarea name="mes" placeholder="İletiniz"></textarea>
+        <div class="form-button">
+            <div class="valid"></div>
+            <button type="submit">Gönder</button>
+        </div>
+    </form>
+</section>
+
+
+

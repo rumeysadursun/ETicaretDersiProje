@@ -73,12 +73,102 @@ namespace ETicaretDersiProje.Eticaret.MvcWebUI.Controllers
 
         }
 
-     
+        public ActionResult Urunler(int id = 0, int supplierID = 0)
+        {
+            Session["kategoriler"] = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList();
+            if (id == 0 && supplierID == 0)
+            {
+                HomeListViewModel model = new HomeListViewModel()
+                {
+                    Products = _productService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Suppliers = _supplierService.GetAll()
+                };
+                return View(model);
+            }
+            else if (id != 0)
+            {
+                HomeListViewModel model = new HomeListViewModel()
+                {
+                    Products = _productService.GetAll().Where(x => x.CategoryID == id).OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Suppliers = _supplierService.GetAll()
+                };
+                return View(model);
+            }
+            else if (supplierID != 0)
+            {
+                HomeListViewModel model = new HomeListViewModel()
+                {
+                    Products = _productService.GetAll().Where(x => x.SupplierID == supplierID).OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Suppliers = _supplierService.GetAll()
+                };
+                return View(model);
+            }
+            return RedirectToAction("Error");
+
+        }
+
+
+        public ActionResult Category(int id = 0, int supplierID = 0)
+        {
+            Session["kategoriler"] = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList();
+            if (id == 0 && supplierID == 0)
+            {
+                HomeListViewModel model = new HomeListViewModel()
+                {
+                    Products = _productService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Suppliers = _supplierService.GetAll()
+                };
+                return View(model);
+            }
+            else if (id != 0)
+            {
+                HomeListViewModel model = new HomeListViewModel()
+                {
+                    Products = _productService.GetAll().Where(x => x.CategoryID == id).OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Suppliers = _supplierService.GetAll()
+                };
+                return View(model);
+            }
+            else if (supplierID != 0)
+            {
+                HomeListViewModel model = new HomeListViewModel()
+                {
+                    Products = _productService.GetAll().Where(x => x.SupplierID == supplierID).OrderBy(x => x.SortLineNumber).ToList(),
+                    Categories = _categoryService.GetAll().OrderBy(x => x.SortLineNumber).ToList(),
+                    Suppliers = _supplierService.GetAll()
+                };
+                return View(model);
+            }
+            return RedirectToAction("Error");
+
+        }
 
         public ActionResult Error()
         {
             return View();
         }
+
+        public ActionResult Kurumsal()
+        {
+            return View();
+        }
+
+        public ActionResult Duyurular()
+        {
+            return View();
+        }
+
+        public ActionResult Iletisim()
+        {
+            return View();
+        }
+
+
 
         public ActionResult List(int id=0)
         {

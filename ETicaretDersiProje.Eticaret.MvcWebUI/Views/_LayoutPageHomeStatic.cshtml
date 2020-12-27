@@ -1,0 +1,139 @@
+﻿@using ETicaretDersiProje.Eticaret.Entities.Concrete
+
+    <!doctype html>
+    <html lang="tr">
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <head>
+        <title>Laisy - Ev Gereçleri A.Ş.</title>
+        <meta name="description" charset="Laisy Ütü Masaları, Çamaşır Kurutmalıkları, Metal Ev Gereçleri Banyo Mutfak Gereçleri" />
+        <link rel="canonical" href="http://laisy.com.tr/">
+        <meta charset="utf-8">
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="author" content="Poenfi">
+        <link rel="stylesheet" href="~/Content/assets/css/main.css" type="text/css">
+    </head>
+    <body>
+        <div id="main">
+            <div class="lin"></div>
+            <header>
+                <div class="hea">
+                    <a href="#" id="mob-mb"></a>
+                    <a href="/" class="log">
+                        <img src="~/Content/assets/images/logo-pc.png" alt="Laisy" width="160" height="160" class="log-pc" />
+                        <img src="~/Content/assets/images/logo-mobile.png" alt="Laisy" width="140" height="140" class="log-mob" />
+                    </a>
+                    <div class="hea-rig">
+                        <div class="sea">
+                            <form action="http://laisyhome.com/urun-arama.php?arama=" method="get">
+                                <input placeholder="Ürün Ara..." type="text" name="ara" value="">
+                                <button type="submit"></button>
+                            </form>
+                        </div>
+                    </div>
+                    <ul class="hea-men">
+                        <li><a href="/Home/index">Anasayfa</a></li>
+                        <li><a href="/Home/kurumsal">Kurumsal</a></li>
+                        <li><a href="/Home/urunler">Ürünler</a></li>
+                        <li><a href="/Home/duyurular">Duyurular</a></li>
+                        <li><a href="/Home/iletisim">İletişim</a></li>
+                    </ul>
+
+                    @if (Session["role"] as string == "Admin")
+                    {
+                        <div class="btn-group pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                    Admin
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Customer/Index">Admin Paneli</a></li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    }
+                    @if (Session["role"] as string == "Firma")
+                    {
+                        <div class="btn-group pull-right">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                    Firma
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Firma/Index">Firma Paneli</a></li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                    }
+                    @*@if (Session["email"] != null)
+                    {
+                        <li><a href="/Home/Profile/@Session["id"]"><i class="fa fa-user"></i> @Session["email"].ToString()</a></li>
+                        <li><a href="/Home/Orders/@Session["id"]"><i class="glyphicon glyphicon-time"></i> Siparişlerim</a></li>
+                        <li><a href="/Checkout/Index"><i class="fa fa-crosshairs"></i> Sipariş Tamamla</a></li>
+                        <li><a href="/Cart/Index"><i class="fa fa-shopping-cart"></i> Sepet</a></li>
+                        <li><a href="/Home/Complaints"><i class="glyphicon glyphicon-remove-sign"></i> Şikayet</a></li>
+                        <li><a href="/Home/Logout"><i class="fa fa-lock"></i> Çıkış</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Home/Login"><i class="fa fa-lock"></i> Giriş/Kayıt</a></li>
+                    }*@
+
+                </div>
+            </header>    
+            
+
+
+
+            <section>
+              
+                        @RenderBody()
+                    
+            </section>
+
+
+            <div class="lin"></div>
+            <footer>
+                <ul class="foo-men">
+                    <li><a href="index">Anasayfa</a></li>
+                    <li><a href="kurumsal">Kurumsal</a></li>
+                    <li><a href="urunler">Ürünler</a></li>
+                    <li><a href="duyurular">Duyurular</a></li>
+                    <li><a href="iletisim">İletişim</a></li>
+                </ul>
+                <ul class="foo-sn">
+                    <li><a href="https://www.facebook.com/LaisyEvGerecleri" rel="external" class="fac"></a>
+                    <li><a href="https://www.instagram.com/laisy_home/" rel="external" class="ins"></a>
+                </ul>
+                <address> <br></address>
+                <b>(0212) 659 29 29</b>
+                <b>info@laisyhome.com</b>
+                <span>laisy 2021</span>
+                <a href="Rumeysa Dursun" class="mar"></a>
+            </footer>
+        </div>
+        <div class="mob-men">
+            <ul>
+                <li><a href="/Home/index">Anasayfa</a></li>
+                <li><a href="/Home/kurumsal">Kurumsal</a></li>
+                <li><a href="/Home/urunler">Ürünler</a></li>
+                <li><a href="/Home/duyurular">Duyurular</a></li>
+                <li><a href="/Home/iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <script src="~/Content/assets/js/jquery.js"></script>
+        <script src="~/Content/assets/js/script.js"></script>
+        <script src="~/Content/assets/js/slider.js"></script>
+    </body>
+
+</html>
+
